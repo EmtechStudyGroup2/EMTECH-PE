@@ -1,17 +1,90 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Calculator
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
-</ion-content>
+<ion-content padding>
+  <h2>Daily Calorie Intake Calculator</h2>
+  <br/>
+
+  <ion-item>
+    <ion-label color="dark"> Gender: </ion-label>
+    <ion-select interface="popover" [(ngModel)]="gender">
+      <ion-option value="m">Male</ion-option>
+      <ion-option value="f">Female</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark">Height in centimeter (cm): </ion-label>
+    <ion-input type="number" [(ngModel)]="height"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark">Weight in kilogram (kg): </ion-label>
+    <ion-input type="number" [(ngModel)]="weight"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark">Age: </ion-label>
+    <ion-input type="number" [(ngModel)]="age"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark"> Activity level: </ion-label>
+    <ion-select interface="popover" [(ngModel)]="activityLevel">
+      <ion-option value='1.2'>No Exercise</ion-option>
+      <ion-option value='1.4'>1-2 Exercise per week</ion-option>
+      <ion-option value='1.6'>2-3 Exercise per week</ion-option>
+      <ion-option value='1.75'>3-5 Exercise per week</ion-option>
+      <ion-option value='2.0'>6-7 Exercise per week</ion-option>
+      <ion-option value='2.3'>Professional Athlete</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <br/>
+
+  <button ion-button color="secondary" (click)="calculateBMR()">
+  COMPUTE
+</button>
+
+  <br/>
+
+<ion-card *ngIf= "bmr"> 
+  <ion-card-header>
+    <ion-card-title>Daily Calorie Intake</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+   {{calorie}} kcal / day <code> {{calorieMessage}} </code> 
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf= "bmr"> 
+  <ion-card-header>
+    <ion-card-title>Carbohydrates</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+   {{carbohydrates}} kcal <code> {{carboMessage}} </code> 
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf= "bmr"> 
+  <ion-card-header>
+    <ion-card-title>Proteins</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+   {{proteins}} kcal <code> {{proteinsMessage}} </code> 
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf= "bmr"> 
+  <ion-card-header>
+    <ion-card-title>Fats</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+   {{fats}} kcal <code> {{fatsMessage}} </code> 
+  </ion-card-content>
+</ion-card>
