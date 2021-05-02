@@ -12,11 +12,11 @@
 
   <ion-item>
     <ion-label color="dark"> Gender: </ion-label>
-    <ion-select interface="popover" [(ngModel)]="gender">
+    <ion-select placeholder="Select One" interface="popover" [(ngModel)]="gender">
       <ion-option value="m">Male</ion-option>
       <ion-option value="f">Female</ion-option>
     </ion-select>
-  </ion-item>
+</ion-item>
 
   <ion-item>
     <ion-label color="dark">Height in centimeter (cm): </ion-label>
@@ -35,7 +35,7 @@
 
   <ion-item>
     <ion-label color="dark"> Activity level: </ion-label>
-    <ion-select interface="popover" [(ngModel)]="activityLevel">
+    <ion-select placeholder="Select One" interface="popover" [(ngModel)]="activityLevel">
       <ion-option value='1.2'>No Exercise</ion-option>
       <ion-option value='1.4'>1-2 Exercise per week</ion-option>
       <ion-option value='1.6'>2-3 Exercise per week</ion-option>

@@ -22,12 +22,12 @@ export class ContactPage {
   proteinsMessage: string;
   fatsMessage: string;
 
-  constructor(public navCtrl: NavController) {}
+  
 
   calculateBMR() {
-    if ((this.gender = "m")) {
+    if (this.gender == "m") {
       this.bmr = 10 * this.weight + 6.25 * this.height - 5 * this.age + 5;
-    } else if ((this.gender = "f")) {
+    } else if (this.gender == "f") {
       this.bmr = 10 * this.weight + 6.25 * this.height - 5 * this.age - 161;
     } else {
       this.bmr = 0.01;
@@ -37,4 +37,5 @@ export class ContactPage {
     this.proteins = parseFloat((0.125 * this.calorie).toFixed(0));
     this.fats = parseFloat((0.275 * this.calorie).toFixed(0));
   }
+  constructor(public navCtrl: NavController) {}
 }
